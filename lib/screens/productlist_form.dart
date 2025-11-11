@@ -126,9 +126,10 @@ class _ProductFormPageState extends State<ProductFormPage> {
                     });
                   },
                   validator: (String? value) {
-                    if (value != null &&
-                        value.isNotEmpty &&
-                        !Uri.parse(value).isAbsolute) {
+                    if (value == null || value.isEmpty) {
+                      return "Thumbnail URL tidak boleh kosong!";
+                    }
+                    if (value.isNotEmpty && !Uri.parse(value).isAbsolute) {
                       return "Masukkan URL yang valid!";
                     }
                     return null;
