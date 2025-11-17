@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turboa_mobile/screens/productlist_form.dart';
 import 'package:turboa_mobile/screens/menu.dart';
+import 'package:turboa_mobile/screens/product_entry_list.dart';
 
 class ItemCard extends StatelessWidget {
   final ItemHomepage item;
@@ -24,6 +25,16 @@ class ItemCard extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ProductFormPage()),
+            );
+          } else if (item.name == "All Products") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProductEntryListPage(initialFilter: ProductFilter.all)),
+            );
+          } else if (item.name == "My Products") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProductEntryListPage(initialFilter: ProductFilter.myProducts)),
             );
           }
         },
